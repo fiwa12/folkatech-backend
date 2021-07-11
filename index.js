@@ -13,7 +13,7 @@ const usersRoutes = require('./routes/usersRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const morgan = require('morgan');
 
-const dbURL = process.env.DB_URL;
+const dbURL = process.env.DB_URL || 'mongodb://localhost:27017/safira';
 
 const AppError = require('./AppError');
 
@@ -81,4 +81,6 @@ app.use((err, req, res, next) => {
   res.status(status).send(message)
 })
 
-app.listen(3001, console.log("> APP IS LISTENING ON PORT 3001"));
+
+const port = process.env.PORT || 3001
+app.listen(port, console.log(`> APP IS LISTENING ON PORT ${port}`));
