@@ -18,3 +18,5 @@ returned token can be used inside bearer token and all path under /users can now
 /users/delete/:identityNumber to delete selected user. returns the remaining users
 
 redis implemented with every changes (adding new user, editing a user, and deleting a user) triggers an update in cache to make sure cached version is always up to date with the database.
+
+
