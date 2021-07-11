@@ -13,12 +13,14 @@ const usersRoutes = require('./routes/usersRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const morgan = require('morgan');
 
+const dbURL = process.env.DB_URL;
+
 const AppError = require('./AppError');
 
 app.use(morgan('tiny'))
 
 mongoose
-  .connect("mongodb://localhost:27017/folkatech-backend", {
+  .connect(dbURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
